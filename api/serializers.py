@@ -1,8 +1,16 @@
-from rest_framework import serializer
-from main.models import Url, AnalyticsEvent
+from rest_framework import serializers
+from main.models import Url, Analytics
 
 
-class UrlSerializer(serializer.ModelSerializer):
+class UrlSerializer(serializers.ModelSerializer):
     class Meta:
         model = Url
-        fields = (user, longurl, shorturl, created_at, custom)
+        fields = ('longurl', 'shorturl', 'created_at', 'custom')
+
+
+class AnalyticSerializer(serializers.ModelSerializer):
+    url = UrlSerializer()
+
+    class Meta:
+        model = Analytics
+        fields = ('date_time', 'user_id', 'page_url', 'device_type', 'referrer', 'location','url')
