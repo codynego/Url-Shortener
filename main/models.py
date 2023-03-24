@@ -10,6 +10,7 @@ class Url(models.Model):
     shorturl = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     custom = models.CharField(max_length=50, null=True)
+    visits = models.PositiveIntegerField(null=True)
 
 
 class Analytics(models.Model):
@@ -19,3 +20,4 @@ class Analytics(models.Model):
     device_type = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
     referrer = models.URLField(max_length=200)
+    url = models.ForeignKey(Url, on_delete=models.CASCADE)
