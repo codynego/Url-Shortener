@@ -5,7 +5,7 @@ from main.models import Url, Analytics
 class UrlSerializer(serializers.ModelSerializer):
     class Meta:
         model = Url
-        fields = ('longurl', 'shorturl', 'created_at', 'custom')
+        fields = ('longurl', 'shorturl')
 
 
 class AnalyticSerializer(serializers.ModelSerializer):

@@ -1,3 +1,67 @@
 {% extends 'base.html' %}
+{% block title %}homepage{% endblock %}
 {% block content %}
+<div class='container-fluid'>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6 shorturl">
+			<h2>Paste the URL to be Shortened</h2>
+            <form action="{% url 'home' %}" method='post' class="form-cont">
+              {% csrf_token %}
+			  {{ form.as_p }}
+			  <div><button type="submit">Shorten</button></div>
+			</form>
+		</div>
+		<div class="col-3"></div>
+	</div>
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8 shortened">
+			<p>your short url: {{shorturl}}</p>
+		</div>
+		<div class='col-2'></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class='col-2'></div>
+		<div class="col-8">
+			<center><h1>A fast and simple URL shortener</h1>
+			<p><b>Free URL Shortener</b> for transforming long, ugly links into
+			nice, memorable and trackable short URls. Use it to shorten links for any 
+			social media platforms, blogs, SMS, emails, ads, or pretty much anywhere
+			else you want to share them. Twitter, Facebook,
+			YouTube, Instagram, WhatsApp, emails, SMS, videos</p></center>
+		</div>
+		<div class='col-2'></div>
+	</div>
+	<br>
+	<div class="row roww">
+		<div class='col-2'></div>
+		<div class="col-8">
+			<center><h1>How it works</h1>
+			<p><b>Free URL Shortener</b> for transforming long, ugly links into
+			nice, memorable and trackable short URls. Use it to shorten links for any 
+			social media platforms, blogs, SMS, emails, ads, or pretty much anywhere
+			else you want to share them. Twitter, Facebook,
+			YouTube, Instagram, WhatsApp, emails, SMS, videos</p></center>
+		</div>
+		<div class='col-2'></div>
+	</div>
+	<div class="row feature">
+		<div class="col-6 card">
+			<center><h2>URL Shortener</h2>
+			<p>Shotly is a URL Shortener and Link Management Platform with a lot of
+				features that will help you handle all your links in an intuitive
+				 way and reveal the potential of your links.</p></center>
+		</div>
+		<div class="col-6 card">
+		<center><h2>Link analytics</h2>
+			<p>
+				Cuttly is an advanced Link Analytics platform that tracks clicks on 
+				short links and measures the effectiveness of clicks. Extensive 
+				statistics of clicks on short links.
+			</p></center>
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -23,13 +23,15 @@ def hash_url(longurl):
 def home(request):
     if request.method == 'POST':
         form = LinkForm(request.POST)
-        if form.valid():
+        if form.is_valid():
             longurl = form.cleaned_data['longurl']
             shorturl = hash_url(longurl)
             link = Url(longurl=longurl, shorturl=shorturl)
             link.save()
+            form = LinkForm()
             context = {
                 'shorturl': shorturl,
+                'form': form,
             }
             return render(request, 'home.html', context)
     form = LinkForm()

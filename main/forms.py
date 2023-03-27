@@ -1,4 +1,9 @@
 from django import forms
 
 class LinkForm(forms.Form):
-    longurl = forms.URLField(label='long Url', max_length=1000)
+    longurl = forms.URLField(max_length=1000, widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "https://" }
+        )
+    )
